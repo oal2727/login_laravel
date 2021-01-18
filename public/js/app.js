@@ -2102,7 +2102,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
@@ -39711,8 +39710,6 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.message))]),
-            _vm._v(" "),
             _c("button-component", { attrs: { title: "Login" } })
           ],
           1
@@ -39830,7 +39827,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("input-component", {
-              attrs: { type: "passowrd", placeholder: "Input Repeat Password" },
+              attrs: { type: "password", placeholder: "Input Repeat Password" },
               model: {
                 value: _vm.user.repeatPassword,
                 callback: function($$v) {

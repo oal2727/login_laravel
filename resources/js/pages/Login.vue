@@ -12,7 +12,6 @@
             placeholder="Input Password Here"
             v-model="user.password"
             />
-            <p>{{message}}</p>
             <button-component title="Login"/>
              </form>
         </card-component>

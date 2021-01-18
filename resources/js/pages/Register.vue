@@ -21,7 +21,7 @@
             v-model="user.password"
             />
            <input-component 
-           type="passowrd"
+           type="password"
            placeholder="Input Repeat Password"
            v-model="user.repeatPassword"
            />
