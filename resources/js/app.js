@@ -9,6 +9,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import {routes} from "./router"
 import VueFlashMessage from 'vue-flash-message';
+import cookie from "js-cookie"
 Vue.use(VueRouter)
 Vue.use(VueFlashMessage);
 
@@ -41,6 +42,20 @@ const router = new VueRouter({
     routes
 })
 
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (!cookie.get('token')) {
+        next({
+          path: '/Login',
+        })
+      } else {
+        next()
+      }
+    } else {
+      next()
+    }
+  })
+
 Vue.component('navbar-component', require('./components/NavbarComponent.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('card-component', require("./components/CardComponent.vue").default);
@@ -51,10 +66,13 @@ Vue.component('button-component',require("./components/ButtonComponent").default
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-const app = new Vue({
+// cookie.get("token")
+store.dispatch("Initialize",cookie.get("token")).then(()=>{
+    console.log(cookie.get("token"))  
+ const app = new Vue({
     el: '#app',
     components:{App},
     store,
     router
 }).$mount('#app');
+})

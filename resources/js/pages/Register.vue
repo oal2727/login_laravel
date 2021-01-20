@@ -48,6 +48,7 @@ import {mapState,mapActions} from "vuex"
                 console.log("data" + this.user)
                 this.$store.dispatch('Register',this.user).then(() => {
                     this.$store.commit("CLEAN_DATA")
+                      this.$router.push("/Login")
                      this.flash("Successfull Register", 'success',{
                        timeout: 3000,
                    });

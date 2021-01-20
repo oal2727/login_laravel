@@ -7,6 +7,6 @@ export const routes = [
     {path:"/",name:"Welcome",component:Welcome},
     {path:"/Login",name:"Login",component:Login},
     {path:"/Register",name:"Register",component:Register},
-    {path:"/Dashboard",name:"Dashboard",component:Dashboard},
+    {path:"/Dashboard",name:"Dashboard",component:Dashboard,meta: { requiresAuth: true }},
     {path:"*",component:PageError}
 ]
