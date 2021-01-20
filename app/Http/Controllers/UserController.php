@@ -15,7 +15,7 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 400);
+                return response()->json(['error' => 'Fallo al Iniciar Session'], 400);
             }
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
@@ -57,4 +57,5 @@ class UserController extends Controller
         auth()->logout();
         return response()->json(['message' => 'Successfully logged out']);
     }
+    
 }

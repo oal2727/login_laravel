@@ -12,6 +12,9 @@ export default{
     },
     Logout(){
         return Api().post("/logout")
+    },
+    deleteAccount(){
+        return Api().delete("/user")
     }
 
 }
