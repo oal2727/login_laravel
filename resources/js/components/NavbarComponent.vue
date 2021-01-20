@@ -1,9 +1,10 @@
 <template>
     <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <p>App Task</p>
+    <!-- <a class="navbar-item" href="https://bulma.io">
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-    </a>
+    </a> -->
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -41,6 +42,13 @@
           @click="Logout">
           Logout
           </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item"
+          @click="deleteAccount"
+          >
+            Delete Account
+          </a>
+
         </div>
       </div>
   </template>
@@ -63,6 +71,14 @@ export default {
       Logout(){
         this.$store.dispatch("Logout").then(e => {
            this.$router.push("/")
+        })
+      },
+      deleteAccount(){
+        this.$store.dispatch("deleteUser").then(e => {
+           this.$router.push("/")
+           this.flash("Delete Account Successfull", 'success',{
+                       timeout: 3000,
+            });
         })
       }
     }

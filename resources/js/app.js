@@ -24,16 +24,6 @@ Vue.use(VueFlashMessage, { messageOptions: {
     pauseOnInteract: true
   }});
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 import App from "./App.vue"
 import {store} from "./store/index"
 
@@ -61,6 +51,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('card-component', require("./components/CardComponent.vue").default);
 Vue.component('input-component',require("./components/InputComponent.vue").default);
 Vue.component('button-component',require("./components/ButtonComponent").default);
+
+Vue.component("addtask-component",require("./components/Task/AddComponent.vue").default);
+Vue.component("listtask-component",require("./components/Task/ListComponent.vue").default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -68,7 +62,6 @@ Vue.component('button-component',require("./components/ButtonComponent").default
  */
 // cookie.get("token")
 store.dispatch("Initialize",cookie.get("token")).then(()=>{
-    console.log(cookie.get("token"))  
  const app = new Vue({
     el: '#app',
     components:{App},
