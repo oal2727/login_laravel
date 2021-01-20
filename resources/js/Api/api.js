@@ -1,6 +1,7 @@
 import axios from 'axios'
 import cookie from "js-cookie"
 
+//https://tranquil-earth-65169.herokuapp.com/api
 const api = axios.create({
     baseURL:"https://tranquil-earth-65169.herokuapp.com/api"
 })

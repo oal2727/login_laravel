@@ -2086,6 +2086,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['userauthenticated'])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['authenticated'])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['userauthenticated'])),
@@ -2661,6 +2662,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_1__);
 
+ //https://tranquil-earth-65169.herokuapp.com/api
 
 var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
   baseURL: "https://tranquil-earth-65169.herokuapp.com/api"
@@ -41249,19 +41251,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "navbar-brand" }, [
-      _c(
-        "a",
-        { staticClass: "navbar-item", attrs: { href: "https://bulma.io" } },
-        [
-          _c("img", {
-            attrs: {
-              src: "https://bulma.io/images/bulma-logo.png",
-              width: "112",
-              height: "28"
-            }
-          })
-        ]
-      ),
+      _c("p", { staticClass: "navbar-item", staticStyle: { color: "green" } }, [
+        _vm._v("App Task")
+      ]),
       _vm._v(" "),
       _c(
         "a",
