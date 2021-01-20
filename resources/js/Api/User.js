@@ -7,12 +7,11 @@ export default{
     Login(data){
         return Api().post('/login',data)
     },
-    Me(token){
-        return Api().post('/user',{
-            headers:{
-                'Authorization':`Bearer ${token}`,
-            }
-        })
+    Me(){
+        return Api().post('/user')
+    },
+    Logout(){
+        return Api().post("/logout")
     }
 
 }

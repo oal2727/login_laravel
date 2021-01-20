@@ -18,26 +18,53 @@
         Home
       </a> -->
     </div>
-
-    <div class="navbar-end">
+  <template>
+    <div class="navbar-end" v-if="!authenticated">
       <div class="navbar-item">
         <div class="buttons">
               <router-link class="button is-primary" to="/Register">Sign Up</router-link>
-          <!-- <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a> -->
            <router-link class="button is-light" to="/Login">Log In</router-link>
-          <!-- <a class="button is-light">
-            Log in
-          </a> -->
+         
         </div>
       </div>
     </div>
+
+  <div class="navbar-item has-dropdown is-hoverable" style="text-right:30px;" v-else>
+        <a class="navbar-link">
+          {{userauthenticated.firstName}} {{userauthenticated.lastName}}
+        </a>
+
+        <div class="navbar-dropdown">
+         <router-link class="navbar-item" to="/Dashboard">Dashboard</router-link>
+         
+          <a class="navbar-item"
+          @click="Logout">
+          Logout
+          </a>
+        </div>
+      </div>
+  </template>
+
   </div>
 </nav>
 </template>
 <script>
+import {mapAction,mapState,mapGetters} from "vuex"
 export default {
-    
+    computed:{
+    ...mapState(['userauthenticated']),
+    ...mapGetters(['authenticated']),
+    ...mapGetters(['userauthenticated'])
+    },
+    created(){
+       this.$store.dispatch('Initialize')
+    },
+    methods:{
+      Logout(){
+        this.$store.dispatch("Logout").then(e => {
+           this.$router.push("/")
+        })
+      }
+    }
 }
 </script>

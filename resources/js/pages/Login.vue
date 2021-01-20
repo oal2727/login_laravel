@@ -36,11 +36,12 @@ import {mapState} from "vuex"
                     this.flash("Successfull Log In", 'success',{
                        timeout: 3000,
                    });
-                }).catch(err => {
-                   this.flash(err.response.data.error, 'error',{
-                       timeout: 5000,
-                   });
-               })
+                })
+            //     }).catch(err => {
+            //        this.flash(err.response.data.error, 'error',{
+            //            timeout: 5000,
+            //        });
+            //    })
             }
         }
 
